@@ -79,15 +79,17 @@ export default class Counter extends Component {
     return (
       <View style={Styles.container}>
         <View>
-          {this.renderMinusButton()}
-        </View>
-        <View>
-          <Text>
+          <Text style={Styles.number}>
             {number}
           </Text>
         </View>
-        <View>
-          {this.renderPlusButton()}
+        <View style={Styles.buttons}>
+          <View>
+            {this.renderMinusButton()}
+          </View>
+          <View>
+            {this.renderPlusButton()}
+          </View>
         </View>
       </View>
     )
@@ -96,15 +98,23 @@ export default class Counter extends Component {
 
 const Styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     paddingTop: 200,
   },
 
+  number: {
+    fontSize: 120,
+    color: '#196583',
+  },
+
+  buttons: {
+    flexDirection: "row",
+  },
+
   touchable: {
-    width: 35,
-    height: 26,
+    width: 120,
+    height: 60,
     borderWidth: 1,
     borderRadius: 15,
     alignItems: "center",
@@ -131,7 +141,6 @@ Counter.defaultProps = {
     // Number, - or +
   },
 
-  textColor: '#196583',
   touchableColor: '#27AAE1',
   touchableDisabledColor: '#B5E9FF',
 
